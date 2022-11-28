@@ -1,0 +1,42 @@
+.calendar {
+    width: 300px;
+}
+
+.week-days {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: Verdana;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    .sunday {
+        color: red;
+    }
+
+    .selected, .sunday.selected {
+        background-color: blue;
+        color: white;
+    }
+    
+    .disabled {
+        color: grey;
+        border-color: grey;
+    }
+}
+
+.header {
+    width: 30px;
+    height: 30px;
+}
+
+.date {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin: 1px;
+}
+

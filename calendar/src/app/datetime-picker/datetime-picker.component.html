@@ -1,0 +1,29 @@
+<div class="calendar">
+    <div>
+        <select (change)="catchMonth()" [(ngModel)]="currentMonthIndex">
+            <option [ngValue]="i" *ngFor="let month of monthNames, index as i">{{ month }}</option>
+        </select>
+        <select (change)="catchYear()" [(ngModel)]="currentYear">
+            <option [ngValue]="year" *ngFor="let year of yearOptions">{{ year }}</option>
+        </select>
+    </div>
+    <div class="week-days">
+
+        <ng-container *ngFor="let weekDay of weekDays">
+            <div class="header" [class.sunday]="weekDay === 'dom'">{{ weekDay }}</div>
+        </ng-container>
+
+    </div>
+    <div>
+        <ng-container *ngFor="let weekDates of monthDates">
+
+            <div class="week-days">
+                <ng-container *ngFor="let date of weekDates, index as i">
+                    <div class="date" [class.sunday]="i === 6 && date.month === currentMonthIndex" [class.disabled]="date.month !== currentMonthIndex" [class.selected]="date.date === currentDate && date.month === currentMonthIndex" (click)="catchDate(date)">{{ date.date }}</div>
+                </ng-container>
+            </div>
+            
+
+        </ng-container>
+    </div>
+</div>
